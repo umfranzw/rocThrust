@@ -54,11 +54,15 @@ function(add_rocthrust_test TEST)
     target_include_directories(${TEST_TARGET} SYSTEM BEFORE
         PUBLIC
             $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+            ${sqlite_local_SOURCE_DIR}
+            ${CRCPP_INCLUDE_PATH}
     )
     target_link_libraries(${TEST_TARGET}
         PRIVATE
             rocthrust
             roc::rocprim_hip
+        PUBLIC
+            sqlite3
     )
     if (TARGET GTest::GTest)
         target_link_libraries(${TEST_TARGET}
@@ -82,6 +86,9 @@ function(add_rocthrust_test TEST)
     set_target_properties(${TEST_TARGET}
         PROPERTIES
             RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/test/"
+    )
+    target_compile_definitions(${TEST_TARGET}
+        PUBLIC ${CRCPP_COMPILE_DEFS}
     )
     if(AMDGPU_TEST_TARGETS)
     foreach(AMDGPU_TARGET IN LISTS AMDGPU_TEST_TARGETS)
@@ -182,6 +189,7 @@ add_rocthrust_test("reduce")
 add_rocthrust_test("reduce_by_key")
 add_rocthrust_test("remove")
 add_rocthrust_test("replace")
+add_rocthrust_test("reproducibility")
 add_rocthrust_test("reverse_iterator")
 add_rocthrust_test("set_difference")
 add_rocthrust_test("set_difference_by_key")
