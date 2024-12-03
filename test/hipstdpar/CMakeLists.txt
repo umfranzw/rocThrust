@@ -4,6 +4,9 @@
 
 function(add_hipstdpar_test TEST TEST_TYPE INTERPOSE_ALLOC)
     set(TEST_SOURCE "test_${TEST}.cpp")
+    if(USE_HIPCXX)
+        set_source_files_properties(${TEST_SOURCE} PROPERTIES LANGUAGE HIP)
+    endif()
     set(TEST_TARGET "${TEST}_${TEST_TYPE}.hip")
 
     add_executable(${TEST_TARGET} ${TEST_SOURCE})
