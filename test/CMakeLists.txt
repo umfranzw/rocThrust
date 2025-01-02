@@ -249,7 +249,7 @@ if(BUILD_TEST)
 endif()
 
 # hipstdpar tests
-if(BUILD_TEST OR BUILD_HIPSTDPAR_TEST)
+if(BUILD_HIPSTDPAR_TEST)
     if(WIN32)
         message(
             STATUS
