@@ -280,7 +280,7 @@ When compiling with the proper flags (see [LLVM (AMD's fork) docs](https://githu
 HIPSTDPAR is currently packaged along rocThrust. The `hipstdpar` package is set up as a virtual package provided by `rocthrust`, so the latter needs to be installed entirely for getting HIPSTDPAR's headers. Conversely, installing the `rocthrust` package will also include HIPSTDPAR's headers in the system.
 
 ### Tests
-rocThrust also includes some tests for checking the correct building of HIPSTDPAR implementations. These are located under the [tests/hipstdpar](/test/hipstdpar/) folder. When configuring the project with the `BUILD_TEST` option on, these tests will not be enabled by default. To enable them, please set `BUILD_HIPSTDPAR_TEST=ON`. Additionally, one can configure **only** HIPSTDPAR's tests by disabling `BUILD_TEST` and enabling `BUILD_HIPSTDPAR_TEST`. In general, the following steps can be followed for building and running the tests:
+rocThrust also includes tests to check the correct building of HIPSTDPAR implementations. They are located in the [tests/hipstdpar](/test/hipstdpar/) folder. When configuring the project with the `BUILD_TEST` option, these tests will not be enabled by default. To enable them, set `BUILD_HIPSTDPAR_TEST=ON`. Additionally, you can configure only HIPSTDPAR's tests by disabling `BUILD_TEST` and enabling `BUILD_HIPSTDPAR_TEST`. In general, the following steps can be followed for building and running the tests:
 
 ```sh
 git clone https://github.com/ROCm/rocThrust
