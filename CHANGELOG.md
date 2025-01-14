@@ -27,6 +27,10 @@ Documentation for rocThrust available at
 * Split the contents of HIPSTDPAR's forwarding header into several implementation headers.
 * Fixed `copy_if` to work with large data types (512 bytes)
 
+### Known Issues
+*  `thrust::inclusive_scan_by_key` might produce incorrect results when it's used with -O2 or -O3 optimization.  
+  - The error is caused by a recent compiler change. There is a fix available that will be released at a later date. 
+
 ## rocThrust 3.2.0 for ROCm 6.3
 
 ### Added
