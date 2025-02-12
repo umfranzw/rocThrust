@@ -59,7 +59,7 @@ inline THRUST_HOST_DEVICE hipStream_t default_stream()
   #ifdef HIP_API_PER_THREAD_DEFAULT_STREAM
     return hipStreamPerThread;
   #else
-    return hipStreamDefault; // There's not hipStreamLegacy
+    return hipStreamLegacy;
   #endif
 }
 
